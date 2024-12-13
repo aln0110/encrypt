@@ -72,8 +72,6 @@ class Encrypt:
         # hasing the wordString using argon2 but adding the random number to the string
         StringHelper= hashed.encode('utf-8')
         hashHashed = hash_secret(hashed.encode('utf-8'), StringHelper, time_cost=3, memory_cost=65536, parallelism=4, hash_len=32, type=Type.ID)
-        
-
         # end hashing the wordString using argon2 but adding the random number to the string
 
         #return hashed
