@@ -21,7 +21,7 @@ def main():
     result = Encrypt.encrypt(StringToHash, salt, nonce, rand, StringHelper)
     
     
-    print (f'With this rand: {rand} with this salt: {salt} with this nonce: {nonce} with this String helper: {StringHelper} the result is: {result}  and the size is: {len(result)}')
+    print (f'With this rand: {rand} with this salt: {salt} with this nonce: {nonce} with this String helper: {StringHelper} the result is: {result}  and the string size is: {len(result)}')
     
    #print(Patito.whoAmI())
    
