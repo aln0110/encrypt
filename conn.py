@@ -14,7 +14,7 @@ class dataBase:
     
     def insert(self, user_obj):
         cursor = self.con.cursor()
-        cursor.execute("INSERT INTO users (user, password, rand, weathe, salt, nonce) VALUES (%s, %s, %s, %s, %s, %s)", (user_obj.getUser(),user_obj.getPassword(), user_obj.getRand(), user_obj.getWeathe(), user_obj.getSalt(), user_obj.getNonce()))
+        cursor.execute("INSERT INTO users (user, password, rand, salt, nonce) VALUES (%s, %s, %s, %s, %s, %s)", (user_obj.getUser(),user_obj.getPassword(), user_obj.getRand(), user_obj.getSalt(), user_obj.getNonce()))
         self.con.commit()
         cursor.close()
         return True
