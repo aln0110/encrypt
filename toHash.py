@@ -9,10 +9,19 @@ class Encrypt:
     
     
     def getSalt():
-      return int (os.urandom(16)) /2 + 5
+       rand= os.urandom(16)
+       rand2 = os.urandom(2)
+       sum = int.from_bytes(rand2, byteorder='big')
+       random = int.from_bytes(rand, byteorder='big')
+       
+       return random  + sum
      
     def getNonce():
-      return  int (os.urandom(20)) /2 + 5 
+       rand = os.urandom(16)
+       random = int.from_bytes(rand, byteorder='big') 
+       rand2 = os.urandom(2)
+       sum = int.from_bytes(rand2, byteorder='big')
+       return  random  + sum
     
     def encrypt(Pass,salt, nonce, rand ):
         ph = PasswordHasher()
@@ -48,5 +57,3 @@ class Encrypt:
 
          
         return hashHashed
-                                    
-        

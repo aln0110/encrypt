@@ -1,40 +1,26 @@
-#from conn import dataBase
-#from user import User
-#from encrypt import Encrypt
 
-import socket
-#import json
-import requests
-#import random
 
+from apiRand import apiRandResponse
+from classPatito import Patito
+from toHash import Encrypt
 
 
 def main():
+    rand = apiRandResponse()
+    salt = Encrypt.getSalt()
+    nonce = Encrypt.getNonce()
+    StringToHash = "pichaMamaUsted"
     
-    urlR= "https://api.random.org/json-rpc/4/invoke" 
+    #print(f'Randon: {rand} Salt: {salt} Nonce: {nonce}')
     
-    headers = {"Content-Type": "application/json"}
+    result = Encrypt.encrypt(StringToHash, salt, nonce, rand)
     
-    payload = {
-        "jsonrpc": "2.0",
-        "method": "generateIntegers",
-        "params": {
-            "apiKey": "7406367f-407d-44a6-91b1-a9daf911be6b",
-            "n": 1,
-            "min": -115251252,
-            "max": 925245125,
-            "replacement": True
-        },
-        "id": 42
-    }
-    rand= requests.post(urlR, json=payload, headers=headers)
-   # print(f'Random number: {rand.json()}') 
- 
+    print (f'With this rand: {rand} with this salt: {salt} with this nonce: {nonce} the result is: {result}')
     
- 
+   #print(Patito.whoAmI())
+   
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-    
